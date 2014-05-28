@@ -3,7 +3,7 @@
 //INSERT SCRIPT
 try
 {
-    $DBConn = new PDO('mysql:host=localhost;dbname=1DV42E', 'root', '');
+    $DBConn = new PDO('mysql:host=localhost; dbname=testSkola;', 'root', '');
 
     $postsToInsert = 1000;
 
@@ -11,7 +11,7 @@ try
 
     for($i = 0; $i < $postsToInsert; $i++)
     {
-        $res = $DBConn->prepare("INSERT INTO ReadTest (firstname, lastname, age) VALUES('Joel', 'Stahre', 26)");
+        $res = $DBConn->prepare("INSERT INTO InsertTest (firstname, lastname, age) VALUES('Joel', 'Stahre', 26)");
         $res->execute();
     }
 
@@ -34,9 +34,9 @@ catch ( PDOException $e )
 
 
 //READ SCRIPT
-/*try
+try
 {
-    $DBConn = new PDO('mysql:host=localhost;dbname=1DV42E', 'root', '');
+    $DBConn = new PDO('mysql:host=localhost;dbname=testSkola', 'root', '');
 
     $startTime = microtime(true);
 
@@ -57,4 +57,9 @@ catch ( PDOException $e )
 {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
-}*/
+}
+
+
+//MYSQL VERSION 5.6.17
+
+//MARIADB VERSION 5.5
